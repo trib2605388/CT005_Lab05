@@ -3,45 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Infographic và video</title>
+  <meta name="description" content="Trang giới thiệu thông tin cá nhân, hình ảnh, tài liệu và video.">
+  <title>Giới thiệu bản thân</title>
   <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, sans-serif;
+      color: #1e293b;
+      background: #f1f5f9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 32px 16px;
-      font-family: Arial, sans-serif;
-      color: #1f2937;
-      background: #f3f4f6;
+      padding: 40px 20px;
     }
 
     main {
-      max-width: 900px;
+      width: min(100%, 960px);
       margin: 0 auto;
     }
 
+    .intro {
+      padding: 40px;
+      color: #fff;
+      background: linear-gradient(135deg, #1d4ed8, #0f766e);
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgb(15 23 42 / 12%);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #bfdbfe;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     h1 {
-      text-align: center;
-      margin-bottom: 32px;
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    .intro p:last-child {
+      max-width: 650px;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .profile-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .detail {
+      padding: 16px;
+      color: #e2e8f0;
+      background: rgb(255 255 255 / 12%);
+      border: 1px solid rgb(255 255 255 / 20%);
+      border-radius: 12px;
+    }
+
+    .detail strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fff;
     }
 
     section {
-      margin-bottom: 32px;
-      padding: 24px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+      margin-top: 24px;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgb(15 23 42 / 5%);
     }
 
-    img {
+    h2 {
+      margin: 0 0 16px;
+      color: #0f172a;
+      font-size: 1.4rem;
+    }
+
+    section p {
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .media-frame {
       display: block;
       width: 100%;
+      border: 0;
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+
+    .pdf-frame {
+      height: min(70vh, 680px);
+      min-height: 420px;
+    }
+
+    .profile-image {
       height: auto;
-      border-radius: 8px;
     }
 
     .video-wrapper {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #0f172a;
     }
 
     .video-wrapper iframe {
@@ -50,36 +128,101 @@
       width: 100%;
       height: 100%;
       border: 0;
-      border-radius: 8px;
+    }
+
+    .file-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 14px;
+      }
+
+      .intro,
+      section {
+        padding: 24px 20px;
+      }
+
+      .pdf-frame {
+        min-height: 360px;
+      }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>Infographic và video hướng dẫn</h1>
+    <header class="intro">
+      <p class="eyebrow">Hồ sơ cá nhân</p>
+      <h1>Xin chào, tôi là Bùi Thanh Hữu Trí</h1>
+      <p>
+        Chào mừng bạn đến với trang giới thiệu của tôi. Tôi yêu thích học hỏi,
+        khám phá những điều mới và phát triển các kỹ năng của mình mỗi ngày.
+      </p>
 
-    <section>
-      <h2>Infographic</h2>
+      <div class="profile-details">
+        <div class="detail">
+          <strong>Nghề nghiệp / Lĩnh vực</strong>
+          Sinh viên / Truyền thông đa phương tiện
+        </div>
+        <div class="detail">
+          <strong>Email</strong>
+          trib2605388@student.ctu.edu.vn
+        </div>
+        <div class="detail">
+          <strong>Sở thích</strong>
+          Lập trình và nghe nhạc
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="image-heading">
+      <h2 id="image-heading">Hình ảnh của tôi</h2>
       <img
-        src="https://cdn.imagetourls.com/uploads/tyImg/12W4THkEL.png"
-        alt="Infographic tóm tắt các thông tin chính"
+        class="media-frame profile-image"
+        src="Lab05_Ex2.1.png"
+        alt="Hình ảnh giới thiệu của tôi"
         loading="lazy"
       >
     </section>
 
-    <section>
-      <h2>Video YouTube</h2>
+    <section aria-labelledby="pdf-heading">
+      <h2 id="pdf-heading">Tài liệu giới thiệu</h2>
+      <p>Bạn có thể xem tài liệu PDF trực tiếp bên dưới hoặc mở riêng trong tab mới.</p>
+      <iframe
+        class="media-frame pdf-frame"
+        src="Lab05_Ex1.2.pdf"
+        title="Tài liệu PDF giới thiệu"
+        loading="lazy"
+      ></iframe>
+      <a class="file-link" href="Lab05_Ex1.2.pdf" target="_blank" rel="noopener">
+        Mở tài liệu PDF
+      </a>
+    </section>
+
+    <section aria-labelledby="video-heading">
+      <h2 id="video-heading">Video yêu thích</h2>
       <div class="video-wrapper">
-        <iframe 
-        width="560" 
-        height="315" 
-        src="https://www.youtube.com/embed/b-WqshCwsqA?si=HB19MBRm1-79TGUA&amp;start=3" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/b-WqshCwsqA?start=3"
+          title="Video YouTube giới thiệu"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
+      <a
+        class="file-link"
+        href="https://www.youtube.com/watch?v=b-WqshCwsqA"
+        target="_blank"
+        rel="noopener"
+      >
+        Xem video trên YouTube
+      </a>
     </section>
   </main>
 </body>
